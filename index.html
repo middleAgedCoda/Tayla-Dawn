@@ -3,6 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ════════════════════════════════════════════
+     SOCIAL SHARING META TAGS (Open Graph + Twitter)
+════════════════════════════════════════════════ -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://tayla-dawn.onrendercom/"/>
+<meta property="og:title" content="TAYLA DAWN 🐉 — Pastel Dreams & Royal Darkness · Digital Creator"/>
+<meta property="og:description" content="Cape Town creator. Anime soul, ink collector, cosplay magic. Pastel meets royal. 2.8K followers, exclusive content, and both sides of me. 18+ only."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Tayla Dawn — pastel and royal aesthetic"/>
+<meta property="og:site_name" content="TAYLA DAWN"/>
+<meta property="og:locale" content="en_ZA"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="TAYLA DAWN 🐉 — Digital Creator · Pastel & Royal"/>
+<meta name="twitter:description" content="Cape Town creator. Anime soul, ink collector, cosplay magic. Both sides of me. 18+ only."/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg"/>
+<meta name="twitter:site" content="@tayla_dawn"/>
+<meta name="twitter:creator" content="@tayla_dawn"/>
+<meta name="rating" content="adult"/>
+<meta name="author" content="Tayla Dawn"/>
   <title>TAYLA DAWN 🐉 — Digital Creator & Cosplayer</title>
   <!-- Tailwind + Alpine CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,7 +35,6 @@
   <style>
     /* === KURO DIGITAL MEGA POOL — TAYLA DAWN EDITION === */
     :root {
-      /* The Duality — Pastel meets Royal */
       --pastel-lavender: #f0e2f5;
       --lavender-mist: #e2cff0;
       --royal-purple: #4a2b5c;
@@ -25,17 +45,14 @@
       --ink-black: #0a0a0a;
       --pure-white: #ffffff;
       
-      /* Gradients */
       --grad-purple: linear-gradient(135deg, var(--pastel-lavender), var(--royal-purple));
       --grad-dawn: linear-gradient(135deg, var(--blush), var(--neon-violet));
       --grad-royal: linear-gradient(135deg, var(--royal-purple), var(--deep-velvet));
       
-      /* Functional */
       --border-soft: rgba(0,0,0,0.05);
       --border-purple: rgba(178,102,255,0.2);
       --border-dark: rgba(255,255,255,0.03);
       
-      /* Timing */
       --t-slow: 0.8s;
       --t-mid: 0.5s;
       --t-fast: 0.3s;
@@ -52,7 +69,6 @@
       font-weight: 300;
     }
     
-    /* === BACKGROUND — PURPLE HAZE + ANIME DOTS === */
     .purple-haze {
       position: fixed;
       inset: 0;
@@ -80,7 +96,7 @@
       z-index: 0;
     }
     
-    /* === CURSOR — PURPLE TRAIL (special for Tayla) === */
+    /* Cursor */
     #c-dot, #c-outer {
       position: fixed;
       pointer-events: none;
@@ -102,7 +118,6 @@
     }
     body.hov #c-outer { width: 75px; height: 75px; border-color: var(--neon-violet); }
     
-    /* Purple trail effect (additional divs created by JS) */
     .trail {
       position: fixed;
       width: 10px;
@@ -116,7 +131,7 @@
       transition: opacity 0.5s;
     }
     
-    /* === LOADER — PURPLE DRAGON === */
+    /* Loader */
     #loader {
       position: fixed; inset: 0;
       background: var(--deep-velvet);
@@ -157,14 +172,13 @@
       color: var(--lavender-mist);
     }
     
-    /* === NAVBAR — VELVET & SILVER === */
+    /* Navbar */
     #nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 500;
       padding: 28px 60px;
       display: flex; align-items: center; justify-content: space-between;
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       background: rgba(45,27,58,0.7);
       border-bottom: 1px solid var(--border-purple);
       transition: all 0.3s;
@@ -230,10 +244,9 @@
     .ham span { 
       display: block; width: 24px; height: 2px; 
       background: var(--pure-white); 
-      transition: background var(--t-fast);
     }
     
-    /* === HERO — DAWN BREAKS === */
+    /* Hero */
     #hero {
       position: relative; z-index: 2;
       min-height: 100vh;
@@ -257,8 +270,7 @@
       animation: fadeUp 1s 0.2s both;
     }
     .ht-dot {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       background: var(--neon-violet);
       border-radius: 50%;
       box-shadow: 0 0 15px var(--neon-violet);
@@ -376,25 +388,19 @@
     .him-inner {
       position: absolute; inset: 0;
       transition: transform 18s ease;
+      background-size: cover;
+      background-position: center;
     }
     .him-inner.drift { transform: scale(1.04) translateY(-5px); }
     .tayla-art-1 {
-      background: linear-gradient(145deg, var(--royal-purple) 0%, var(--deep-velvet) 100%);
-    }
-    .tayla-art-1::before {
-      content: '🖤'; position: absolute;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      font-size: clamp(4rem, 8vw, 7rem);
-      opacity: 0.1;
+      background-image: url('https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg');
+      background-size: cover;
+      background-position: center;
     }
     .tayla-art-2 {
-      background: linear-gradient(145deg, var(--pastel-lavender) 0%, var(--lavender-mist) 100%);
-    }
-    .tayla-art-2::before {
-      content: '💜'; position: absolute;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      font-size: clamp(3rem, 6vw, 5rem);
-      opacity: 0.1;
+      background-image: url('https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg');
+      background-size: cover;
+      background-position: center;
     }
     .hero-img-label {
       position: absolute; bottom: 20px; right: 20px;
@@ -404,6 +410,10 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--lavender-mist);
+      background: rgba(0,0,0,0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
     }
     
     .hero-scroll-bar {
@@ -420,7 +430,7 @@
     
     @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
     
-    /* === TICKER — PURPLE RAIN === */
+    /* Ticker */
     .ticker {
       position: relative; z-index: 2;
       background: var(--deep-velvet);
@@ -452,7 +462,7 @@
     }
     @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
     
-    /* === SECTION SHELL === */
+    /* Sections base */
     .sw {
       position: relative; z-index: 2;
       max-width: 1400px; margin: 0 auto;
@@ -499,7 +509,7 @@
       max-width: 560px;
     }
     
-    /* === REVEAL ANIMATIONS === */
+    /* Reveal */
     .rv { opacity: 0; transform: translateY(30px); transition: opacity 1.2s ease, transform 1.2s ease; }
     .rv.on { opacity: 1; transform: translateY(0); }
     .rv-l { opacity: 0; transform: translateX(-40px); transition: opacity 1.2s ease, transform 1.2s ease; }
@@ -509,10 +519,9 @@
     .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
     .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
     
-    /* === THE CREATOR — TAYLA'S STORY === */
+    /* Creator section */
     #creator {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
       border-top: 1px solid var(--border-purple);
       border-bottom: 1px solid var(--border-purple);
     }
@@ -531,28 +540,25 @@
       border-radius: 30px;
       overflow: hidden;
     }
-    .creator-frame::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 30%, rgba(179,0,255,0.08) 0%, transparent 70%);
+    .creator-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+      transition: transform 0.7s;
     }
-    .cf-art {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 6rem;
-      opacity: 0.15;
-      animation: creatorFloat 15s ease-in-out infinite;
+    .creator-frame:hover img {
+      transform: scale(1.02);
     }
-    @keyframes creatorFloat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
-    
     .cf-corner {
       position: absolute;
       width: 40px; height: 40px;
       border-color: var(--neon-violet);
+      pointer-events: none;
     }
     .cf-corner.tl { top: 20px; left: 20px; border-top: 2px solid; border-left: 2px solid; }
     .cf-corner.br { bottom: 20px; right: 20px; border-bottom: 2px solid; border-right: 2px solid; }
-    
     .cf-label {
       position: absolute; bottom: 0; left: 0; right: 0;
       background: rgba(179,0,255,0.1);
@@ -564,6 +570,7 @@
       text-transform: uppercase;
       color: var(--neon-violet);
       text-align: center;
+      backdrop-filter: blur(4px);
     }
     
     .creator-name {
@@ -621,10 +628,9 @@
       margin-top: 6px;
     }
     
-    /* === THE DUALITY — PASTEL MEETS ROYAL === */
+    /* Duality */
     #duality {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
       padding: 60px 0;
     }
     .duality-grid {
@@ -658,12 +664,6 @@
     .duality-card:hover {
       transform: scale(1.02);
     }
-    .duality-card.pastel:hover {
-      box-shadow: 0 20px 40px -10px var(--neon-violet);
-    }
-    .duality-card.royal:hover {
-      box-shadow: 0 20px 40px -10px rgba(179,0,255,0.3);
-    }
     .duality-icon {
       font-size: 3rem;
       margin-bottom: 24px;
@@ -695,10 +695,9 @@
       border: 1px solid currentColor;
     }
     
-    /* === VIDEO CAROUSEL — NEW SECTION === */
+    /* Video carousel */
     #video-carousel {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
       padding: 60px 0;
       overflow: hidden;
     }
@@ -775,28 +774,36 @@
       background: linear-gradient(145deg, var(--deep-velvet), var(--royal-purple));
       position: relative;
     }
-    .video-thumb::before {
-      content: '🎥';
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-thumb .play-overlay {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2.5rem;
-      opacity: 0.3;
+      width: 60px;
+      height: 60px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
     }
-    .video-thumb::after {
+    .video-card:hover .play-overlay {
+      background: var(--neon-violet);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .play-overlay::after {
       content: '▶';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      color: var(--neon-violet);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .video-card:hover .video-thumb::after {
-      opacity: 1;
+      color: white;
+      font-size: 1.5rem;
+      margin-left: 4px;
     }
     .video-info {
       padding: 20px;
@@ -814,10 +821,9 @@
       color: var(--lavender-mist);
     }
     
-    /* === THE VAULT — CONTENT COLLECTIONS === */
+    /* Vault */
     #vault {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
       border-top: 1px solid var(--border-purple);
       border-bottom: 1px solid var(--border-purple);
     }
@@ -845,6 +851,13 @@
       font-size: 2.5rem;
       margin-bottom: 16px;
     }
+    .vault-icon img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid var(--border-purple);
+    }
     .vault-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
@@ -863,10 +876,9 @@
       letter-spacing: 0.1em;
     }
     
-    /* === PLATFORM EMPIRE === */
+    /* Platforms */
     #platforms {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
     }
     .platforms-grid {
       display: grid;
@@ -910,10 +922,9 @@
       color: var(--lavender-mist);
     }
     
-    /* === GALLERY === */
+    /* Gallery */
     #gallery {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
       border-top: 1px solid var(--border-purple);
       border-bottom: 1px solid var(--border-purple);
     }
@@ -933,23 +944,18 @@
       cursor: pointer;
       transition: all 0.3s;
     }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
     .gallery-item:hover {
       border-color: var(--neon-violet);
-      transform: scale(1.02);
-    }
-    .gallery-item::before {
-      content: '🔒';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      opacity: 0.3;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover::before {
-      opacity: 0.8;
-      color: var(--neon-violet);
     }
     .gallery-label {
       position: absolute;
@@ -961,12 +967,12 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      color: var(--pure-white);
     }
     
-    /* === TESTIMONIALS === */
+    /* Testimonials */
     #testimonials {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
     }
     .testimonials-grid {
       display: grid;
@@ -992,6 +998,7 @@
       line-height: 2;
       margin-bottom: 24px;
       font-style: italic;
+      position: relative;
     }
     .test-quote::before {
       content: '"';
@@ -1000,8 +1007,8 @@
       color: var(--neon-violet);
       opacity: 0.2;
       position: absolute;
-      top: 20px;
-      left: 30px;
+      top: -10px;
+      left: -15px;
     }
     .test-author {
       display: flex;
@@ -1029,10 +1036,9 @@
       color: var(--lavender-mist);
     }
     
-    /* === MEMBERSHIP TIERS === */
+    /* Membership */
     #membership {
       background: var(--deep-velvet);
-      position: relative; z-index: 2;
       border-top: 1px solid var(--border-purple);
       border-bottom: 1px solid var(--border-purple);
     }
@@ -1133,15 +1139,9 @@
       background: currentColor;
       color: var(--deep-velvet);
     }
-    .member-card.royal-tier .member-btn:hover {
-      background: var(--pure-white);
-      border-color: var(--pure-white);
-      color: var(--deep-velvet);
-    }
     
-    /* === CONTACT / LINKS === */
+    /* Contact */
     #contact {
-      position: relative; z-index: 2;
       background: var(--deep-velvet);
     }
     .contact-inner {
@@ -1272,9 +1272,8 @@
       box-shadow: 0 10px 20px rgba(179,0,255,0.2);
     }
     
-    /* === FOOTER === */
+    /* Footer */
     footer {
-      position: relative; z-index: 2;
       background: var(--deep-velvet);
       border-top: 1px solid var(--border-purple);
       padding: 80px 60px 40px;
@@ -1368,7 +1367,7 @@
       background-clip: text;
     }
     
-    /* === MOBILE MENU === */
+    /* Mobile menu */
     #mob-menu {
       display: none; position: fixed; inset: 0;
       background: rgba(45,27,58,0.98);
@@ -1399,7 +1398,6 @@
     }
     .mob-x:hover { border-color: var(--neon-violet); color: var(--neon-violet); }
     
-    /* === RESPONSIVE === */
     @media (max-width: 1200px) {
       #hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
@@ -1441,22 +1439,18 @@
   </style>
 </head>
 <body>
-  <!-- BACKGROUND -->
   <div class="purple-haze"></div>
   <div class="anime-dots"></div>
 
-  <!-- CURSOR -->
   <div id="c-dot"></div>
   <div id="c-outer"></div>
 
-  <!-- LOADER -->
   <div id="loader">
     <div class="loader-name">TAYLA DAWN <span>🐉</span></div>
     <div class="loader-dragon">🐉</div>
     <div class="loader-num" id="lNum">000</div>
   </div>
 
-  <!-- MOBILE MENU -->
   <div id="mob-menu">
     <button class="mob-x" onclick="closeMob()">✕</button>
     <a href="#creator" onclick="closeMob()">Dawn</a>
@@ -1466,7 +1460,6 @@
     <a href="#membership" onclick="closeMob()">Join</a>
   </div>
 
-  <!-- NAVBAR -->
   <nav id="nav">
     <a class="nav-logo" href="#">TAYLA DAWN <span>🐉</span></a>
     <div class="nav-right">
@@ -1482,7 +1475,6 @@
     <button class="ham" onclick="openMob()"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
       <div class="hero-tag">
@@ -1520,29 +1512,22 @@
     <div class="hero-scroll-bar"><div class="hsb-progress" id="scrollProgress"></div></div>
   </section>
 
-  <!-- TICKER -->
   <div class="ticker">
     <div class="ticker-track">
-      <div class="ticker-item">✨ 2.8K followers ✨</div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item">🖤 Cape Town 🖤</div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item">💜 girly sexy goth 💜</div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item">🐉 anime & cosplay 🐉</div>
-      <div class="ticker-sep"></div>
-      <div class="ticker-item">🖋️ ink collector 🖋️</div>
-      <div class="ticker-sep"></div>
+      <div class="ticker-item">✨ 2.8K followers ✨</div><div class="ticker-sep"></div>
+      <div class="ticker-item">🖤 Cape Town 🖤</div><div class="ticker-sep"></div>
+      <div class="ticker-item">💜 girly sexy goth 💜</div><div class="ticker-sep"></div>
+      <div class="ticker-item">🐉 anime & cosplay 🐉</div><div class="ticker-sep"></div>
+      <div class="ticker-item">🖋️ ink collector 🖋️</div><div class="ticker-sep"></div>
     </div>
   </div>
 
-  <!-- THE CREATOR -->
   <section id="creator">
     <div class="sw">
       <div class="creator-grid">
         <div class="creator-visual rv-l">
           <div class="creator-frame">
-            <div class="cf-art">🐉</div>
+            <img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="Tayla Dawn">
             <div class="cf-corner tl"></div>
             <div class="cf-corner br"></div>
             <div class="cf-label">CAPE TOWN · DURBAN</div>
@@ -1564,209 +1549,92 @@
     </div>
   </section>
 
-  <!-- THE DUALITY -->
   <section id="duality">
     <div class="duality-grid">
       <div class="duality-card pastel rv">
         <div class="duality-icon">🌸</div>
         <div class="duality-title">Pastel Dreams</div>
         <div class="duality-desc">Soft, sweet, playful. The girly side of goth — lace and lavender, anime smiles, and the gentle magic of being soft in a hard world.</div>
-        <div class="duality-tags">
-          <span class="duality-tag">Lace</span>
-          <span class="duality-tag">Lavender</span>
-          <span class="duality-tag">Kawaii</span>
-          <span class="duality-tag">Soft</span>
-        </div>
+        <div class="duality-tags"><span class="duality-tag">Lace</span><span class="duality-tag">Lavender</span><span class="duality-tag">Kawaii</span><span class="duality-tag">Soft</span></div>
       </div>
       <div class="duality-card royal rv d1">
         <div class="duality-icon">🦇</div>
         <div class="duality-title">Royal Darkness</div>
         <div class="duality-desc">Deep, rich, powerful. The side that wears purple like a crown, that collects ink and owns the night. Royal blood runs dark.</div>
-        <div class="duality-tags">
-          <span class="duality-tag">Velvet</span>
-          <span class="duality-tag">Ink</span>
-          <span class="duality-tag">Goth</span>
-          <span class="duality-tag">Crown</span>
-        </div>
+        <div class="duality-tags"><span class="duality-tag">Velvet</span><span class="duality-tag">Ink</span><span class="duality-tag">Goth</span><span class="duality-tag">Crown</span></div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO CAROUSEL — NEW SECTION -->
   <section id="video-carousel">
     <div class="carousel-container">
       <div class="carousel-header">
-        <div>
-          <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Watch</span></div>
-          <h2 class="s-title rv">Video <span>Moments</span></h2>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" onclick="slideCarousel(-1)">←</button>
-          <button class="carousel-btn" onclick="slideCarousel(1)">→</button>
-        </div>
+        <div><div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Watch</span></div><h2 class="s-title rv">Video <span>Moments</span></h2></div>
+        <div class="carousel-controls"><button class="carousel-btn" onclick="slideCarousel(-1)">←</button><button class="carousel-btn" onclick="slideCarousel(1)">→</button></div>
       </div>
       <div class="carousel-track-container">
         <div class="carousel-track" id="videoTrack">
-          <div class="video-card">
-            <div class="video-thumb"></div>
-            <div class="video-info">
-              <div class="video-title">Pastel Goth Vlog</div>
-              <div class="video-meta"><span>🎥 12 min</span><span>🔒 Exclusive</span></div>
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb"></div>
-            <div class="video-info">
-              <div class="video-title">Cosplay Prep</div>
-              <div class="video-meta"><span>🎥 24 min</span><span>🔒 Members</span></div>
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb"></div>
-            <div class="video-info">
-              <div class="video-title">Ink Stories</div>
-              <div class="video-meta"><span>🎥 18 min</span><span>🔒 All Tiers</span></div>
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb"></div>
-            <div class="video-info">
-              <div class="video-title">Cape Town Sunset</div>
-              <div class="video-meta"><span>🎥 8 min</span><span>🔒 Exclusive</span></div>
-            </div>
-          </div>
+          <div class="video-card"><div class="video-thumb"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="video thumb"><div class="play-overlay"></div></div><div class="video-info"><div class="video-title">Pastel Goth Vlog</div><div class="video-meta"><span>🎥 12 min</span><span>🔒 Exclusive</span></div></div></div>
+          <div class="video-card"><div class="video-thumb"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="video thumb"><div class="play-overlay"></div></div><div class="video-info"><div class="video-title">Cosplay Prep</div><div class="video-meta"><span>🎥 24 min</span><span>🔒 Members</span></div></div></div>
+          <div class="video-card"><div class="video-thumb"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="video thumb"><div class="play-overlay"></div></div><div class="video-info"><div class="video-title">Ink Stories</div><div class="video-meta"><span>🎥 18 min</span><span>🔒 All Tiers</span></div></div></div>
+          <div class="video-card"><div class="video-thumb"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="video thumb"><div class="play-overlay"></div></div><div class="video-info"><div class="video-title">Cape Town Sunset</div><div class="video-meta"><span>🎥 8 min</span><span>🔒 Exclusive</span></div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE VAULT -->
   <section id="vault">
     <div class="sw">
       <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Collections</span></div>
       <h2 class="s-title rv">The <em>Vault</em></h2>
       <div class="vault-grid">
-        <div class="vault-item rv">
-          <div class="vault-icon">🌸</div>
-          <div class="vault-name">Pastel Dreams</div>
-          <div class="vault-count">47 photos · 8 videos</div>
-          <div class="vault-lock">🔒 Subscribe to unlock</div>
-        </div>
-        <div class="vault-item rv d1">
-          <div class="vault-icon">🦇</div>
-          <div class="vault-name">Royal Nights</div>
-          <div class="vault-count">62 photos · 12 videos</div>
-          <div class="vault-lock">🔒 Subscribe to unlock</div>
-        </div>
-        <div class="vault-item rv d2">
-          <div class="vault-icon">🎭</div>
-          <div class="vault-name">Cosplay Chronicles</div>
-          <div class="vault-count">23 photos · 5 videos</div>
-          <div class="vault-lock">🔒 Subscribe to unlock</div>
-        </div>
-        <div class="vault-item rv d3">
-          <div class="vault-icon">🖋️</div>
-          <div class="vault-name">Ink Stories</div>
-          <div class="vault-count">34 photos · 3 videos</div>
-          <div class="vault-lock">🔒 Subscribe to unlock</div>
-        </div>
+        <div class="vault-item rv"><div class="vault-icon"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="pastel"></div><div class="vault-name">Pastel Dreams</div><div class="vault-count">47 photos · 8 videos</div><div class="vault-lock">🔒 Subscribe to unlock</div></div>
+        <div class="vault-item rv d1"><div class="vault-icon"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="royal"></div><div class="vault-name">Royal Nights</div><div class="vault-count">62 photos · 12 videos</div><div class="vault-lock">🔒 Subscribe to unlock</div></div>
+        <div class="vault-item rv d2"><div class="vault-icon"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="cosplay"></div><div class="vault-name">Cosplay Chronicles</div><div class="vault-count">23 photos · 5 videos</div><div class="vault-lock">🔒 Subscribe to unlock</div></div>
+        <div class="vault-item rv d3"><div class="vault-icon"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="ink"></div><div class="vault-name">Ink Stories</div><div class="vault-count">34 photos · 3 videos</div><div class="vault-lock">🔒 Subscribe to unlock</div></div>
       </div>
     </div>
   </section>
 
-  <!-- PLATFORM EMPIRE -->
   <section id="platforms">
     <div class="sw">
       <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">My Empire</span></div>
       <h2 class="s-title rv">Where to <em>Find Me</em></h2>
       <div class="platforms-grid">
-        <a href="#" class="platform-card rv" target="_blank">
-          <div class="platform-icon">🔞</div>
-          <div class="platform-name">OnlyFans</div>
-          <div class="platform-stats">@tayla.dawn</div>
-          <div class="platform-handle">exclusive content</div>
-        </a>
-        <a href="#" class="platform-card rv d1" target="_blank">
-          <div class="platform-icon">📷</div>
-          <div class="platform-name">Instagram</div>
-          <div class="platform-stats">@tayla.dawn.barlow</div>
-          <div class="platform-handle">daily moments</div>
-        </a>
-        <a href="#" class="platform-card rv d2" target="_blank">
-          <div class="platform-icon">🎵</div>
-          <div class="platform-name">TikTok</div>
-          <div class="platform-stats">@tayla.dawn</div>
-          <div class="platform-handle">short & sweet</div>
-        </a>
-        <a href="#" class="platform-card rv d3" target="_blank">
-          <div class="platform-icon">🖤</div>
-          <div class="platform-name">Reddit</div>
-          <div class="platform-stats">u/tayla_dawn</div>
-          <div class="platform-handle">community</div>
-        </a>
-        <a href="#" class="platform-card rv d4" target="_blank">
-          <div class="platform-icon">𝕏</div>
-          <div class="platform-name">X</div>
-          <div class="platform-stats">@tayla_dawn</div>
-          <div class="platform-handle">thoughts</div>
-        </a>
-        <a href="#" class="platform-card rv d5" target="_blank">
-          <div class="platform-icon">🔗</div>
-          <div class="platform-name">Linktree</div>
-          <div class="platform-stats">@tayla.barlow</div>
-          <div class="platform-handle">all links</div>
-        </a>
+        <a href="#" class="platform-card rv" target="_blank"><div class="platform-icon">🔞</div><div class="platform-name">OnlyFans</div><div class="platform-stats">@tayla.dawn</div><div class="platform-handle">exclusive content</div></a>
+        <a href="#" class="platform-card rv d1" target="_blank"><div class="platform-icon">📷</div><div class="platform-name">Instagram</div><div class="platform-stats">@tayla.dawn.barlow</div><div class="platform-handle">daily moments</div></a>
+        <a href="#" class="platform-card rv d2" target="_blank"><div class="platform-icon">🎵</div><div class="platform-name">TikTok</div><div class="platform-stats">@tayla.dawn</div><div class="platform-handle">short & sweet</div></a>
+        <a href="#" class="platform-card rv d3" target="_blank"><div class="platform-icon">🖤</div><div class="platform-name">Reddit</div><div class="platform-stats">u/tayla_dawn</div><div class="platform-handle">community</div></a>
+        <a href="#" class="platform-card rv d4" target="_blank"><div class="platform-icon">𝕏</div><div class="platform-name">X</div><div class="platform-stats">@tayla_dawn</div><div class="platform-handle">thoughts</div></a>
+        <a href="#" class="platform-card rv d5" target="_blank"><div class="platform-icon">🔗</div><div class="platform-name">Linktree</div><div class="platform-stats">@tayla.barlow</div><div class="platform-handle">all links</div></a>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery">
     <div class="sw">
       <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Preview</span></div>
       <h2 class="s-title rv">Glimpses <em>Behind the Curtain</em></h2>
       <div class="gallery-grid">
-        <div class="gallery-item rv">
-          <div class="gallery-label">🌸 Pastel</div>
-        </div>
-        <div class="gallery-item rv d1">
-          <div class="gallery-label">🦇 Royal</div>
-        </div>
-        <div class="gallery-item rv d2">
-          <div class="gallery-label">🎭 Cosplay</div>
-        </div>
-        <div class="gallery-item rv d3">
-          <div class="gallery-label">🖋️ Ink</div>
-        </div>
+        <div class="gallery-item rv"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="Pastel"><div class="gallery-label">🌸 Pastel</div></div>
+        <div class="gallery-item rv d1"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="Royal"><div class="gallery-label">🦇 Royal</div></div>
+        <div class="gallery-item rv d2"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="Cosplay"><div class="gallery-label">🎭 Cosplay</div></div>
+        <div class="gallery-item rv d3"><img src="https://raw.githubusercontent.com/middleAgedCoda/Tayla-Dawn/main/A0pt.jpg" alt="Ink"><div class="gallery-label">🖋️ Ink</div></div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="sw">
       <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Kind Words</span></div>
       <h2 class="s-title rv">What <em>Subscribers Say</em></h2>
       <div class="testimonials-grid">
-        <div class="test-card rv">
-          <p class="test-quote">"Tayla's duality is what makes her content so special. One day soft and sweet, the next dark and powerful. Never boring."</p>
-          <div class="test-author">
-            <div class="test-avatar">M</div>
-            <div class="test-name"><h4>Marcus</h4><p>subscriber for 8 months</p></div>
-          </div>
-        </div>
-        <div class="test-card rv d1">
-          <p class="test-quote">"The cosplay content is next level. You can tell she actually loves the characters, not just the costume."</p>
-          <div class="test-author">
-            <div class="test-avatar">S</div>
-            <div class="test-name"><h4>Sarah</h4><p>subscriber for 1 year</p></div>
-          </div>
-        </div>
+        <div class="test-card rv"><p class="test-quote">"Tayla's duality is what makes her content so special. One day soft and sweet, the next dark and powerful. Never boring."</p><div class="test-author"><div class="test-avatar">M</div><div class="test-name"><h4>Marcus</h4><p>subscriber for 8 months</p></div></div></div>
+        <div class="test-card rv d1"><p class="test-quote">"The cosplay content is next level. You can tell she actually loves the characters, not just the costume."</p><div class="test-author"><div class="test-avatar">S</div><div class="test-name"><h4>Sarah</h4><p>subscriber for 1 year</p></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- MEMBERSHIP TIERS -->
   <section id="membership">
     <div class="sw">
       <div class="membership-header">
@@ -1775,269 +1643,78 @@
         <p class="s-sub rv" style="margin: 20px auto 0;">Pastel, Royal, or Velvet — every door leads to me.</p>
       </div>
       <div class="membership-grid">
-        <div class="member-card pastel-tier rv">
-          <div class="member-name">Pastel</div>
-          <div class="member-price">$9.99<span>/mo</span></div>
-          <ul class="member-features">
-            <li>🌸 Pastel gallery access</li>
-            <li>📸 50+ exclusive photos</li>
-            <li>💬 Monthly DMs</li>
-          </ul>
-          <a href="#contact" class="member-btn">Join Pastel</a>
-        </div>
-        <div class="member-card royal-tier featured rv d1">
-          <div class="member-badge">Most Popular</div>
-          <div class="member-name">Royal</div>
-          <div class="member-price">$19.99<span>/mo</span></div>
-          <ul class="member-features">
-            <li>🦇 Royal gallery access</li>
-            <li>🎥 All video content</li>
-            <li>💬 Weekly DMs</li>
-            <li>🔓 Both pastel & royal</li>
-          </ul>
-          <a href="#contact" class="member-btn">Join Royal</a>
-        </div>
-        <div class="member-card royal-tier rv d2">
-          <div class="member-name">Velvet</div>
-          <div class="member-price">$29.99<span>/mo</span></div>
-          <ul class="member-features">
-            <li>👑 Everything unlocked</li>
-            <li>🎭 Cosplay exclusives</li>
-            <li>💬 Direct messages</li>
-            <li>🖋️ Custom requests</li>
-          </ul>
-          <a href="#contact" class="member-btn">Join Velvet</a>
-        </div>
+        <div class="member-card pastel-tier rv"><div class="member-name">Pastel</div><div class="member-price">$9.99<span>/mo</span></div><ul class="member-features"><li>🌸 Pastel gallery access</li><li>📸 50+ exclusive photos</li><li>💬 Monthly DMs</li></ul><a href="#contact" class="member-btn">Join Pastel</a></div>
+        <div class="member-card royal-tier featured rv d1"><div class="member-badge">Most Popular</div><div class="member-name">Royal</div><div class="member-price">$19.99<span>/mo</span></div><ul class="member-features"><li>🦇 Royal gallery access</li><li>🎥 All video content</li><li>💬 Weekly DMs</li><li>🔓 Both pastel & royal</li></ul><a href="#contact" class="member-btn">Join Royal</a></div>
+        <div class="member-card royal-tier rv d2"><div class="member-name">Velvet</div><div class="member-price">$29.99<span>/mo</span></div><ul class="member-features"><li>👑 Everything unlocked</li><li>🎭 Cosplay exclusives</li><li>💬 Direct messages</li><li>🖋️ Custom requests</li></ul><a href="#contact" class="member-btn">Join Velvet</a></div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT / LINKS -->
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-left rv">
         <div class="s-eye"><div class="s-eye-dot"></div><span class="s-eye-text">Connect</span></div>
-        <div class="contact-big">
-          Let's <em>talk</em>
-        </div>
+        <div class="contact-big">Let's <em>talk</em></div>
         <p class="s-sub">Collaborations, custom content, or just to say hi — I'd love to hear from you.</p>
         <div class="contact-details">
-          <div class="cd-item">
-            <div class="cd-icon">📧</div>
-            <div class="cd-text">tayla@tayladawn.com</div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-icon">📍</div>
-            <div class="cd-text">Cape Town, South Africa</div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-icon">🔗</div>
-            <div class="cd-text">linktr.ee/tayla.barlow</div>
-          </div>
+          <div class="cd-item"><div class="cd-icon">📧</div><div class="cd-text">tayla@tayladawn.com</div></div>
+          <div class="cd-item"><div class="cd-icon">📍</div><div class="cd-text">Cape Town, South Africa</div></div>
+          <div class="cd-item"><div class="cd-icon">🔗</div><div class="cd-text">linktr.ee/tayla.barlow</div></div>
         </div>
       </div>
 
       <div class="contact-form rv">
         <div class="cf-title">Send a Message</div>
         <div class="cf-sub">I'll respond within 48 hours</div>
-        <div class="ff-row">
-          <div class="ff"><label>Name</label><input type="text" placeholder="Your name"/></div>
-          <div class="ff"><label>Email</label><input type="email" placeholder="you@example.com"/></div>
-        </div>
-        <div class="ff">
-          <label>Subject</label>
-          <select>
-            <option>Collaboration</option>
-            <option>Custom content</option>
-            <option>Business</option>
-            <option>Just saying hi</option>
-          </select>
-        </div>
+        <div class="ff-row"><div class="ff"><label>Name</label><input type="text" placeholder="Your name"/></div><div class="ff"><label>Email</label><input type="email" placeholder="you@example.com"/></div></div>
+        <div class="ff"><label>Subject</label><select><option>Collaboration</option><option>Custom content</option><option>Business</option><option>Just saying hi</option></select></div>
         <div class="ff"><label>Message</label><textarea placeholder="What's on your mind?"></textarea></div>
         <button class="cf-btn" onclick="handleContact(this)">Send</button>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
-        <div class="footer-brand">
-          <a class="fb-logo" href="#">TAYLA DAWN <span>🐉</span></a>
-          <div class="fb-tagline">pastel · royal · ink</div>
-          <p>Digital creator from Cape Town. Anime soul, ink collector, duality embodied.</p>
-          <div class="f-soc">
-            <a class="fs-b" href="#">📷</a>
-            <a class="fs-b" href="#">🎵</a>
-            <a class="fs-b" href="#">𝕏</a>
-            <a class="fs-b" href="#">🔞</a>
-          </div>
-        </div>
-        <div>
-          <div class="fc-title">Explore</div>
-          <ul class="footer-links">
-            <li><a href="#creator">Dawn</a></li>
-            <li><a href="#duality">Duality</a></li>
-            <li><a href="#vault">Vault</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="fc-title">Join</div>
-          <ul class="footer-links">
-            <li><a href="#membership">Membership</a></li>
-            <li><a href="#platforms">Platforms</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="fc-title">Legal</div>
-          <ul class="footer-links">
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">18+ Only</a></li>
-          </ul>
-        </div>
+        <div class="footer-brand"><a class="fb-logo" href="#">TAYLA DAWN <span>🐉</span></a><div class="fb-tagline">pastel · royal · ink</div><p>Digital creator from Cape Town. Anime soul, ink collector, duality embodied.</p><div class="f-soc"><a class="fs-b" href="#">📷</a><a class="fs-b" href="#">🎵</a><a class="fs-b" href="#">𝕏</a><a class="fs-b" href="#">🔞</a></div></div>
+        <div><div class="fc-title">Explore</div><ul class="footer-links"><li><a href="#creator">Dawn</a></li><li><a href="#duality">Duality</a></li><li><a href="#vault">Vault</a></li><li><a href="#gallery">Gallery</a></li></ul></div>
+        <div><div class="fc-title">Join</div><ul class="footer-links"><li><a href="#membership">Membership</a></li><li><a href="#platforms">Platforms</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><div class="fc-title">Legal</div><ul class="footer-links"><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li><li><a href="#">18+ Only</a></li></ul></div>
       </div>
-      <div class="footer-bottom">
-        <span class="fbl">© 2026 TAYLA DAWN · All rights reserved · 18+ only</span>
-        <span class="fbr">both sides of me</span>
-      </div>
+      <div class="footer-bottom"><span class="fbl">© 2026 TAYLA DAWN · All rights reserved · 18+ only</span><span class="fbr">both sides of me</span></div>
     </div>
   </footer>
 
   <script>
-    // === PURPLE TRAIL CURSOR (special for Tayla) ===
     const trails = [];
-    const trailCount = 10;
-    for (let i = 0; i < trailCount; i++) {
-      const trail = document.createElement('div');
-      trail.className = 'trail';
-      document.body.appendChild(trail);
-      trails.push({
-        element: trail,
-        x: 0,
-        y: 0,
-        delay: i * 50
-      });
-    }
-
+    for (let i = 0; i < 10; i++) { const t = document.createElement('div'); t.className = 'trail'; document.body.appendChild(t); trails.push({ element: t, x: 0, y: 0, delay: i * 50 }); }
     let mouseX = 0, mouseY = 0;
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+    function updateTrails() { trails.forEach((trail, idx) => { setTimeout(() => { trail.element.style.left = mouseX + 'px'; trail.element.style.top = mouseY + 'px'; }, trail.delay); }); requestAnimationFrame(updateTrails); } updateTrails();
 
-    function updateTrails() {
-      trails.forEach((trail, index) => {
-        setTimeout(() => {
-          trail.element.style.left = mouseX + 'px';
-          trail.element.style.top = mouseY + 'px';
-        }, trail.delay);
-      });
-      requestAnimationFrame(updateTrails);
-    }
-    updateTrails();
-
-    // === CURSOR ===
-    const dot = document.getElementById('c-dot');
-    const ring = document.getElementById('c-outer');
+    const dot = document.getElementById('c-dot'), ring = document.getElementById('c-outer');
     let mx = 0, my = 0, ox = 0, oy = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function loop() {
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      ox += (mx - ox) * 0.08; oy += (my - oy) * 0.08;
-      ring.style.left = ox + 'px'; ring.style.top = oy + 'px';
-      requestAnimationFrame(loop);
-    })();
-    document.querySelectorAll('a, button, .vault-item, .platform-card, .gallery-item, .test-card, .member-card, .video-card, .btn-primary, .btn-secondary').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-    });
+    (function loop() { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; ox += (mx - ox) * 0.08; oy += (my - oy) * 0.08; ring.style.left = ox + 'px'; ring.style.top = oy + 'px'; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a, button, .vault-item, .platform-card, .gallery-item, .test-card, .member-card, .video-card, .btn-primary, .btn-secondary').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('hov')); el.addEventListener('mouseleave', () => document.body.classList.remove('hov')); });
 
-    // === LOADER ===
-    let pct = 0;
-    const lNum = document.getElementById('lNum');
-    const ldrInt = setInterval(() => {
-      pct += Math.random() * 2 + 1;
-      if (pct >= 100) { pct = 100; clearInterval(ldrInt);
-        setTimeout(() => { 
-          document.getElementById('loader').classList.add('gone');
-          setTimeout(() => { 
-            document.getElementById('heroImgTop')?.classList.add('drift');
-            document.getElementById('heroImgBot')?.classList.add('drift');
-          }, 600);
-        }, 400);
-      }
-      lNum.textContent = String(Math.floor(pct)).padStart(3, '0');
-    }, 50);
+    let pct = 0; const lNum = document.getElementById('lNum'); const ldrInt = setInterval(() => { pct += Math.random() * 2 + 1; if (pct >= 100) { pct = 100; clearInterval(ldrInt); setTimeout(() => { document.getElementById('loader').classList.add('gone'); setTimeout(() => { document.getElementById('heroImgTop')?.classList.add('drift'); document.getElementById('heroImgBot')?.classList.add('drift'); }, 600); }, 400); } lNum.textContent = String(Math.floor(pct)).padStart(3, '0'); }, 50);
 
-    // === NAVBAR SCROLL ===
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      if (window.scrollY > 60) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-      
-      const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      document.getElementById('scrollProgress').style.width = Math.min(scrollPct, 100) + '%';
-    });
+    window.addEventListener('scroll', () => { const nav = document.getElementById('nav'); if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100; document.getElementById('scrollProgress').style.width = Math.min(scrollPct, 100) + '%'; });
 
-    // === REVEAL ON SCROLL ===
-    const revIO = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    const revIO = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(el => revIO.observe(el));
 
-    // === CAROUSEL ===
-    let slideIndex = 0;
-    function slideCarousel(direction) {
-      const track = document.getElementById('videoTrack');
-      const cards = document.querySelectorAll('.video-card');
-      const cardWidth = cards[0].offsetWidth + 20; // width + gap
-      const maxSlide = cards.length - (window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1200 ? 2 : 3));
-      slideIndex += direction;
-      if (slideIndex < 0) slideIndex = maxSlide;
-      if (slideIndex > maxSlide) slideIndex = 0;
-      track.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
-    }
-    window.slideCarousel = slideCarousel;
+    let slideIndex = 0; function slideCarousel(dir) { const track = document.getElementById('videoTrack'); const cards = document.querySelectorAll('.video-card'); const cardWidth = cards[0].offsetWidth + 20; const maxSlide = cards.length - (window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1200 ? 2 : 3)); slideIndex += dir; if (slideIndex < 0) slideIndex = maxSlide; if (slideIndex > maxSlide) slideIndex = 0; track.style.transform = `translateX(-${slideIndex * cardWidth}px)`; } window.slideCarousel = slideCarousel;
 
-    // === CONTACT FORM HANDLER ===
-    function handleContact(btn) {
-      const orig = btn.innerHTML;
-      btn.innerHTML = 'Sending...';
-      btn.style.background = 'rgba(179,0,255,0.5)';
-      setTimeout(() => {
-        btn.innerHTML = '✓ Message Sent — I\'ll Reply Within 48 Hours';
-        btn.style.background = 'rgba(179,0,255,0.3)';
-        btn.style.color = '#ffffff';
-        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 5000);
-      }, 1800);
-    }
-    window.handleContact = handleContact;
+    function handleContact(btn) { const orig = btn.innerHTML; btn.innerHTML = 'Sending...'; btn.style.background = 'rgba(179,0,255,0.5)'; setTimeout(() => { btn.innerHTML = '✓ Message Sent — I\'ll Reply Within 48 Hours'; btn.style.background = 'rgba(179,0,255,0.3)'; btn.style.color = '#ffffff'; setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 5000); }, 1800); } window.handleContact = handleContact;
 
-    // === MOBILE MENU ===
-    function openMob() { document.getElementById('mob-menu').classList.add('open'); }
-    function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
-    window.openMob = openMob; window.closeMob = closeMob;
+    function openMob() { document.getElementById('mob-menu').classList.add('open'); } function closeMob() { document.getElementById('mob-menu').classList.remove('open'); } window.openMob = openMob; window.closeMob = closeMob;
 
-    // === SMOOTH SCROLL ===
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { const target = document.querySelector(a.getAttribute('href')); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
 
-    // === PARALLAX ===
-    window.addEventListener('scroll', () => {
-      const sy = window.scrollY;
-      const haze = document.querySelector('.purple-haze');
-      if (haze && sy < window.innerHeight) {
-        haze.style.transform = `translateY(${sy * 0.1}px)`;
-      }
-    });
+    window.addEventListener('scroll', () => { const sy = window.scrollY; const haze = document.querySelector('.purple-haze'); if (haze && sy < window.innerHeight) haze.style.transform = `translateY(${sy * 0.1}px)`; });
   </script>
 </body>
-</html>
+  </html>
