@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAYLA DAWN 🐉 — Digital Creator & Cosplayer</title>
+  <!-- Tailwind + Alpine CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <style>
+    /* === KURO DIGITAL MEGA POOL — TAYLA DAWN EDITION === */
+    :root {
+      /* The Duality — Pastel meets Royal */
+      --pastel-lavender: #f0e2f5;
+      --lavender-mist: #e2cff0;
+      --royal-purple: #4a2b5c;
+      --deep-velvet: #2d1b3a;
+      --neon-violet: #b300ff;
+      --blush: #f5d6e6;
+      --silver: #c0c0c0;
+      --ink-black: #0a0a0a;
+      --pure-white: #ffffff;
+      
+      /* Gradients */
+      --grad-purple: linear-gradient(135deg, var(--pastel-lavender), var(--royal-purple));
+      --grad-dawn: linear-gradient(135deg, var(--blush), var(--neon-violet));
+      --grad-royal: linear-gradient(135deg, var(--royal-purple), var(--deep-velvet));
+      
+      /* Functional */
+      --border-soft: rgba(0,0,0,0.05);
+      --border-purple: rgba(178,102,255,0.2);
+      --border-dark: rgba(255,255,255,0.03);
+      
+      /* Timing */
+      --t-slow: 0.8s;
+      --t-mid: 0.5s;
+      --t-fast: 0.3s;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--deep-velvet);
+      color: var(--pure-white);
+      overflow-x: hidden;
+      cursor: none;
+      font-weight: 300;
+    }
+    
+    /* === BACKGROUND — PURPLE HAZE + ANIME DOTS === */
+    .purple-haze {
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(178,102,255,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(212,175,255,0.05) 0%, transparent 40%);
+      animation: hazeDrift 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes hazeDrift {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+    
+    .anime-dots {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(var(--lavender-mist) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* === CURSOR — PURPLE TRAIL (special for Tayla) === */
+    #c-dot, #c-outer {
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    #c-dot {
+      width: 6px; height: 6px;
+      background: var(--neon-violet);
+      box-shadow: 0 0 20px var(--neon-violet), 0 0 40px rgba(179,0,255,0.3);
+      transition: background var(--t-fast);
+      mix-blend-mode: screen;
+    }
+    #c-outer {
+      width: 50px; height: 50px;
+      border: 1px solid rgba(179,0,255,0.3);
+      transition: width 0.4s ease, height 0.4s ease, border-color 0.3s;
+    }
+    body.hov #c-outer { width: 75px; height: 75px; border-color: var(--neon-violet); }
+    
+    /* Purple trail effect (additional divs created by JS) */
+    .trail {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--neon-violet);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.3;
+      filter: blur(2px);
+      transition: opacity 0.5s;
+    }
+    
+    /* === LOADER — PURPLE DRAGON === */
+    #loader {
+      position: fixed; inset: 0;
+      background: var(--deep-velvet);
+      z-index: 9500;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 40px;
+      transition: opacity 1.5s, visibility 1.5s;
+    }
+    #loader.gone { opacity: 0; visibility: hidden; }
+    .loader-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: loaderBreath 2s ease-in-out infinite;
+    }
+    .loader-name span {
+      font-size: 3rem;
+      filter: drop-shadow(0 0 10px var(--neon-violet));
+    }
+    @keyframes loaderBreath { 0%,100%{opacity:0.7;transform:scale(0.98)} 50%{opacity:1;transform:scale(1)} }
+    .loader-dragon {
+      font-size: 4rem;
+      animation: dragonDance 2s ease-in-out infinite;
+    }
+    @keyframes dragonDance {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+    .loader-num {
+      font-family: 'Inter', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--lavender-mist);
+    }
+    
+    /* === NAVBAR — VELVET & SILVER === */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 28px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(45,27,58,0.7);
+      border-bottom: 1px solid var(--border-purple);
+      transition: all 0.3s;
+    }
+    #nav.scrolled {
+      padding: 16px 60px;
+      background: rgba(45,27,58,0.95);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .nav-logo span {
+      font-size: 2.2rem;
+      filter: drop-shadow(0 0 5px var(--neon-violet));
+    }
+    .nav-right {
+      display: flex; align-items: center; gap: 44px;
+    }
+    .nav-links {
+      display: flex; gap: 40px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lavender-mist);
+      text-decoration: none;
+      transition: color var(--t-fast);
+    }
+    .nav-links a:hover { color: var(--neon-violet); }
+    .nav-cta {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep-velvet);
+      background: var(--neon-violet);
+      padding: 12px 32px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 40px;
+    }
+    .nav-cta:hover {
+      background: var(--royal-purple);
+      color: var(--pure-white);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(179,0,255,0.3);
+    }
+    .ham {
+      display: none;
+      flex-direction: column; gap: 6px;
+      background: none; border: none; cursor: pointer;
+    }
+    .ham span { 
+      display: block; width: 24px; height: 2px; 
+      background: var(--pure-white); 
+      transition: background var(--t-fast);
+    }
+    
+    /* === HERO — DAWN BREAKS === */
+    #hero {
+      position: relative; z-index: 2;
+      min-height: 100vh;
+      background: transparent;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      overflow: hidden;
+    }
+    
+    .hero-left {
+      position: relative;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 0 60px 0 80px;
+      border-right: 1px solid var(--border-purple);
+      z-index: 5;
+    }
+    .hero-tag {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px;
+      animation: fadeUp 1s 0.2s both;
+    }
+    .ht-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--neon-violet);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--neon-violet);
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+    @keyframes dotPulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+    .ht-line {
+      width: 60px;
+      height: 2px;
+      background: var(--grad-purple);
+    }
+    .ht-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lavender-mist);
+      font-weight: 300;
+    }
+    
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      animation: fadeUp 1s 0.3s both;
+    }
+    .hero-name .line1 {
+      display: block;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-name .line2 {
+      display: block;
+      color: var(--pure-white);
+      margin-top: 8px;
+      font-size: 0.7em;
+      font-weight: 400;
+    }
+    .hero-name .line2 span {
+      font-size: 1.2em;
+      filter: drop-shadow(0 0 5px var(--neon-violet));
+    }
+    
+    .hero-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+      color: var(--lavender-mist);
+      max-width: 560px;
+      margin: 32px 0;
+      animation: fadeUp 1s 0.4s both;
+    }
+    
+    .hero-btns {
+      display: flex; gap: 20px;
+      animation: fadeUp 1s 0.5s both;
+    }
+    .btn-primary {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep-velvet);
+      background: var(--neon-violet);
+      padding: 18px 44px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 10px;
+      border-radius: 40px;
+    }
+    .btn-primary:hover {
+      background: var(--royal-purple);
+      color: var(--pure-white);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(179,0,255,0.3);
+    }
+    .btn-secondary {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--pure-white);
+      background: transparent;
+      padding: 18px 44px;
+      text-decoration: none;
+      border: 1px solid var(--royal-purple);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 10px;
+      border-radius: 40px;
+    }
+    .btn-secondary:hover {
+      border-color: var(--neon-violet);
+      color: var(--neon-violet);
+    }
+    
+    .hero-right {
+      position: relative;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px;
+      z-index: 5;
+    }
+    .hero-img-top, .hero-img-bot {
+      position: relative;
+      overflow: hidden;
+    }
+    .him-inner {
+      position: absolute; inset: 0;
+      transition: transform 18s ease;
+    }
+    .him-inner.drift { transform: scale(1.04) translateY(-5px); }
+    .tayla-art-1 {
+      background: linear-gradient(145deg, var(--royal-purple) 0%, var(--deep-velvet) 100%);
+    }
+    .tayla-art-1::before {
+      content: '🖤'; position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: clamp(4rem, 8vw, 7rem);
+      opacity: 0.1;
+    }
+    .tayla-art-2 {
+      background: linear-gradient(145deg, var(--pastel-lavender) 0%, var(--lavender-mist) 100%);
+    }
+    .tayla-art-2::before {
+      content: '💜'; position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: clamp(3rem, 6vw, 5rem);
+      opacity: 0.1;
+    }
+    .hero-img-label {
+      position: absolute; bottom: 20px; right: 20px;
+      z-index: 3;
+      font-family: 'Inter', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lavender-mist);
+    }
+    
+    .hero-scroll-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--border-purple);
+      z-index: 10;
+    }
+    .hsb-progress {
+      height: 100%;
+      width: 0%;
+      background: var(--grad-purple);
+    }
+    
+    @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+    
+    /* === TICKER — PURPLE RAIN === */
+    .ticker {
+      position: relative; z-index: 2;
+      background: var(--deep-velvet);
+      padding: 18px 0;
+      overflow: hidden;
+      border-top: 1px solid var(--border-purple);
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .ticker-track {
+      display: flex; width: max-content;
+      animation: ticker 45s linear infinite;
+    }
+    .ticker-item {
+      display: flex; align-items: center; gap: 24px;
+      padding: 0 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lavender-mist);
+      white-space: nowrap;
+    }
+    .ticker-sep {
+      width: 6px; height: 6px;
+      background: var(--neon-violet);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    
+    /* === SECTION SHELL === */
+    .sw {
+      position: relative; z-index: 2;
+      max-width: 1400px; margin: 0 auto;
+      padding: 120px 60px;
+    }
+    .s-eye {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .s-eye-dot {
+      width: 8px; height: 8px;
+      background: var(--neon-violet);
+      border-radius: 50%;
+    }
+    .s-eye-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--neon-violet);
+      font-weight: 400;
+    }
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--pure-white);
+    }
+    .s-title em { 
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: normal;
+    }
+    .s-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 2;
+      color: var(--lavender-mist);
+      max-width: 560px;
+    }
+    
+    /* === REVEAL ANIMATIONS === */
+    .rv { opacity: 0; transform: translateY(30px); transition: opacity 1.2s ease, transform 1.2s ease; }
+    .rv.on { opacity: 1; transform: translateY(0); }
+    .rv-l { opacity: 0; transform: translateX(-40px); transition: opacity 1.2s ease, transform 1.2s ease; }
+    .rv-l.on { opacity: 1; transform: translateX(0); }
+    .rv-r { opacity: 0; transform: translateX(40px); transition: opacity 1.2s ease, transform 1.2s ease; }
+    .rv-r.on { opacity: 1; transform: translateX(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+    
+    /* === THE CREATOR — TAYLA'S STORY === */
+    #creator {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border-purple);
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .creator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .creator-visual { position: relative; }
+    .creator-frame {
+      position: relative;
+      aspect-ratio: 1;
+      background: linear-gradient(145deg, var(--royal-purple), var(--deep-velvet));
+      border: 1px solid var(--border-purple);
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    .creator-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(179,0,255,0.08) 0%, transparent 70%);
+    }
+    .cf-art {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+      opacity: 0.15;
+      animation: creatorFloat 15s ease-in-out infinite;
+    }
+    @keyframes creatorFloat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+    
+    .cf-corner {
+      position: absolute;
+      width: 40px; height: 40px;
+      border-color: var(--neon-violet);
+    }
+    .cf-corner.tl { top: 20px; left: 20px; border-top: 2px solid; border-left: 2px solid; }
+    .cf-corner.br { bottom: 20px; right: 20px; border-bottom: 2px solid; border-right: 2px solid; }
+    
+    .cf-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(179,0,255,0.1);
+      border-top: 1px solid rgba(179,0,255,0.2);
+      padding: 16px;
+      font-family: 'Inter', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon-violet);
+      text-align: center;
+    }
+    
+    .creator-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .creator-handle {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--neon-violet);
+      margin-bottom: 24px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .creator-bio {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--lavender-mist);
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+    .creator-stats {
+      display: flex; gap: 0;
+      border: 1px solid var(--border-purple);
+      margin-top: 32px;
+    }
+    .cs-item {
+      flex: 1; padding: 20px;
+      border-right: 1px solid var(--border-purple);
+      text-align: center;
+    }
+    .cs-item:last-child { border-right: none; }
+    .cs-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .cs-lab {
+      font-size: 0.55rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lavender-mist);
+      margin-top: 6px;
+    }
+    
+    /* === THE DUALITY — PASTEL MEETS ROYAL === */
+    #duality {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+      padding: 60px 0;
+    }
+    .duality-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+    .duality-card {
+      padding: 60px 40px;
+      border-radius: 30px;
+      transition: all 0.5s ease;
+      cursor: default;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .duality-card.pastel {
+      background: linear-gradient(145deg, var(--pastel-lavender), var(--lavender-mist));
+      color: var(--deep-velvet);
+    }
+    .duality-card.royal {
+      background: linear-gradient(145deg, var(--royal-purple), var(--deep-velvet));
+      color: var(--pure-white);
+    }
+    .duality-card:hover {
+      transform: scale(1.02);
+    }
+    .duality-card.pastel:hover {
+      box-shadow: 0 20px 40px -10px var(--neon-violet);
+    }
+    .duality-card.royal:hover {
+      box-shadow: 0 20px 40px -10px rgba(179,0,255,0.3);
+    }
+    .duality-icon {
+      font-size: 3rem;
+      margin-bottom: 24px;
+    }
+    .duality-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .duality-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .duality-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .duality-tag {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid currentColor;
+    }
+    
+    /* === VIDEO CAROUSEL — NEW SECTION === */
+    #video-carousel {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+      padding: 60px 0;
+      overflow: hidden;
+    }
+    .carousel-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+    .carousel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .carousel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    .carousel-title span {
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .carousel-controls {
+      display: flex;
+      gap: 10px;
+    }
+    .carousel-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border-purple);
+      background: transparent;
+      color: var(--neon-violet);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-btn:hover {
+      background: var(--neon-violet);
+      color: var(--deep-velvet);
+      border-color: var(--neon-violet);
+    }
+    .carousel-track-container {
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease;
+    }
+    .video-card {
+      min-width: calc(33.333% - 14px);
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--neon-violet);
+      box-shadow: 0 15px 30px -10px rgba(179,0,255,0.3);
+    }
+    .video-thumb {
+      aspect-ratio: 16/9;
+      background: linear-gradient(145deg, var(--deep-velvet), var(--royal-purple));
+      position: relative;
+    }
+    .video-thumb::before {
+      content: '🎥';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      opacity: 0.3;
+    }
+    .video-thumb::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: var(--neon-violet);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .video-card:hover .video-thumb::after {
+      opacity: 1;
+    }
+    .video-info {
+      padding: 20px;
+    }
+    .video-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .video-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--lavender-mist);
+    }
+    
+    /* === THE VAULT — CONTENT COLLECTIONS === */
+    #vault {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border-purple);
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 60px;
+    }
+    .vault-item {
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      padding: 40px 30px;
+      transition: all 0.4s;
+      border-radius: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .vault-item:hover {
+      border-color: var(--neon-violet);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(179,0,255,0.2);
+    }
+    .vault-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    .vault-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .vault-count {
+      font-size: 0.8rem;
+      color: var(--neon-violet);
+      margin-bottom: 16px;
+    }
+    .vault-lock {
+      font-size: 0.7rem;
+      color: var(--lavender-mist);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* === PLATFORM EMPIRE === */
+    #platforms {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+    }
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 60px;
+    }
+    .platform-card {
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      padding: 40px 30px;
+      transition: all 0.4s;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .platform-card:hover {
+      border-color: var(--neon-violet);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(179,0,255,0.2);
+    }
+    .platform-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    .platform-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .platform-stats {
+      font-size: 0.8rem;
+      color: var(--neon-violet);
+      margin-bottom: 8px;
+    }
+    .platform-handle {
+      font-size: 0.7rem;
+      color: var(--lavender-mist);
+    }
+    
+    /* === GALLERY === */
+    #gallery {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border-purple);
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 60px;
+    }
+    .gallery-item {
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, var(--royal-purple), var(--deep-velvet));
+      border: 1px solid var(--border-purple);
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .gallery-item:hover {
+      border-color: var(--neon-violet);
+      transform: scale(1.02);
+    }
+    .gallery-item::before {
+      content: '🔒';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover::before {
+      opacity: 0.8;
+      color: var(--neon-violet);
+    }
+    .gallery-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: linear-gradient(to top, var(--deep-velvet), transparent);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* === TESTIMONIALS === */
+    #testimonials {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 60px;
+    }
+    .test-card {
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      padding: 48px 40px;
+      transition: all 0.4s;
+      border-radius: 20px;
+    }
+    .test-card:hover {
+      border-color: var(--neon-violet);
+      transform: translateY(-6px);
+    }
+    .test-quote {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--pure-white);
+      line-height: 2;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .test-quote::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--neon-violet);
+      opacity: 0.2;
+      position: absolute;
+      top: 20px;
+      left: 30px;
+    }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .test-avatar {
+      width: 48px; height: 48px;
+      background: var(--deep-velvet);
+      border: 1px solid var(--neon-violet);
+      border-radius: 50%;
+      display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1rem;
+      color: var(--neon-violet);
+    }
+    .test-name h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--pure-white);
+      margin-bottom: 4px;
+    }
+    .test-name p {
+      font-size: 0.7rem;
+      color: var(--lavender-mist);
+    }
+    
+    /* === MEMBERSHIP TIERS === */
+    #membership {
+      background: var(--deep-velvet);
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border-purple);
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .membership-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .member-card {
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      padding: 48px 32px;
+      position: relative;
+      transition: all 0.4s;
+      text-align: center;
+      border-radius: 20px;
+    }
+    .member-card.pastel-tier {
+      background: linear-gradient(145deg, var(--pastel-lavender), var(--lavender-mist));
+      color: var(--deep-velvet);
+    }
+    .member-card.royal-tier {
+      background: linear-gradient(145deg, var(--royal-purple), var(--deep-velvet));
+      color: var(--pure-white);
+    }
+    .member-card.featured {
+      border-color: var(--neon-violet);
+      transform: scale(1.05);
+      box-shadow: 0 20px 30px -10px rgba(179,0,255,0.3);
+      z-index: 2;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--neon-violet);
+    }
+    .member-card.featured:hover { transform: scale(1.05) translateY(-6px); }
+    .member-badge {
+      position: absolute; top: -15px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--neon-violet);
+      color: var(--pure-white);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      padding: 6px 20px;
+      border-radius: 40px;
+      text-transform: uppercase;
+    }
+    .member-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .member-price {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: inherit;
+      margin-bottom: 24px;
+    }
+    .member-price span {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+    .member-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .member-features li {
+      font-size: 0.85rem;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .member-card.pastel-tier .member-features li {
+      border-bottom-color: rgba(0,0,0,0.1);
+    }
+    .member-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 16px;
+      background: transparent;
+      border: 2px solid currentColor;
+      color: inherit;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: all 0.3s;
+    }
+    .member-btn:hover {
+      background: currentColor;
+      color: var(--deep-velvet);
+    }
+    .member-card.royal-tier .member-btn:hover {
+      background: var(--pure-white);
+      border-color: var(--pure-white);
+      color: var(--deep-velvet);
+    }
+    
+    /* === CONTACT / LINKS === */
+    #contact {
+      position: relative; z-index: 2;
+      background: var(--deep-velvet);
+    }
+    .contact-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .contact-left {
+      position: relative;
+    }
+    .contact-big {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .contact-big em {
+      font-style: normal;
+      display: block;
+      font-size: 0.8em;
+    }
+    .contact-details {
+      margin: 32px 0;
+    }
+    .cd-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .cd-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-violet);
+    }
+    .cd-text {
+      font-size: 0.9rem;
+      color: var(--lavender-mist);
+    }
+    .contact-form {
+      background: var(--royal-purple);
+      border: 1px solid var(--border-purple);
+      padding: 48px;
+      border-radius: 30px;
+    }
+    .cf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--pure-white);
+      margin-bottom: 6px;
+    }
+    .cf-sub {
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--lavender-mist);
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .ff { margin-bottom: 20px; }
+    .ff label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon-violet);
+      margin-bottom: 8px;
+    }
+    .ff input, .ff select, .ff textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--deep-velvet);
+      border: 1px solid var(--border-purple);
+      color: var(--pure-white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      outline: none;
+      transition: all var(--t-fast);
+      border-radius: 40px;
+    }
+    .ff textarea { border-radius: 20px; resize: vertical; min-height: 100px; }
+    .ff input:focus, .ff select:focus, .ff textarea:focus {
+      border-color: var(--neon-violet);
+      background: rgba(179,0,255,0.05);
+    }
+    .ff-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .cf-btn {
+      width: 100%;
+      padding: 16px;
+      margin-top: 8px;
+      background: var(--neon-violet);
+      color: var(--deep-velvet);
+      border: none;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 40px;
+    }
+    .cf-btn:hover {
+      background: var(--royal-purple);
+      color: var(--pure-white);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(179,0,255,0.2);
+    }
+    
+    /* === FOOTER === */
+    footer {
+      position: relative; z-index: 2;
+      background: var(--deep-velvet);
+      border-top: 1px solid var(--border-purple);
+      padding: 80px 60px 40px;
+    }
+    .footer-inner { max-width: 1400px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 80px; margin-bottom: 60px;
+    }
+    .fb-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      display: block; margin-bottom: 16px;
+    }
+    .fb-tagline {
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--neon-violet);
+      margin-bottom: 20px;
+    }
+    .footer-brand p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--lavender-mist);
+      line-height: 1.8;
+      max-width: 280px;
+      margin-bottom: 28px;
+    }
+    .f-soc {
+      display: flex; gap: 12px;
+    }
+    .fs-b {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border-purple);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lavender-mist); font-size: 0.9rem;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .fs-b:hover {
+      border-color: var(--neon-violet);
+      color: var(--neon-violet);
+      transform: translateY(-3px);
+    }
+    .fc-title {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--neon-violet);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-purple);
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a {
+      color: var(--lavender-mist);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--neon-violet); }
+    .footer-bottom {
+      border-top: 1px solid var(--border-purple);
+      padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .fbl {
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--lavender-mist);
+    }
+    .fbr {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.8rem;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* === MOBILE MENU === */
+    #mob-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(45,27,58,0.98);
+      backdrop-filter: blur(20px);
+      z-index: 800;
+      flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+    }
+    #mob-menu.open { display: flex; }
+    #mob-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--grad-purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    #mob-menu a:hover { filter: drop-shadow(0 0 10px var(--neon-violet)); }
+    .mob-x {
+      position: absolute; top: 28px; right: 28px;
+      background: none; border: 1px solid var(--border-purple);
+      color: var(--lavender-mist); width: 56px; height: 56px;
+      border-radius: 50%;
+      cursor: pointer; font-size: 1.4rem;
+      transition: all 0.2s;
+    }
+    .mob-x:hover { border-color: var(--neon-violet); color: var(--neon-violet); }
+    
+    /* === RESPONSIVE === */
+    @media (max-width: 1200px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .creator-grid { grid-template-columns: 1fr; gap: 60px; }
+      .duality-grid { grid-template-columns: 1fr; }
+      .video-card { min-width: calc(50% - 10px); }
+      .vault-grid { grid-template-columns: repeat(2, 1fr); }
+      .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .membership-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      #nav { padding: 16px 24px; }
+      #nav.scrolled { padding: 12px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .ham { display: flex; }
+      .sw { padding: 80px 24px; }
+      .hero-left { padding: 120px 24px 60px; }
+      .duality-grid { padding: 0 24px; }
+      .carousel-container { padding: 0 24px; }
+      .video-card { min-width: 100%; }
+      .vault-grid { grid-template-columns: 1fr; }
+      .platforms-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .membership-grid { grid-template-columns: 1fr; }
+      .member-card.featured { transform: scale(1); }
+      .creator-stats { flex-direction: column; }
+      .cs-item { border-right: none; border-bottom: 1px solid var(--border-purple); }
+      .contact-inner { padding: 60px 24px; }
+      .contact-form { padding: 32px 24px; }
+      .ff-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      footer { padding: 60px 24px 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- BACKGROUND -->
+  <div class="purple-haze"></div>
+  <div class="anime-dots"></div>
+
+  <!-- CURSOR -->
+  <div id="c-dot"></div>
+  <div id="c-outer"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-name">TAYLA DAWN <span>🐉</span></div>
+    <div class="loader-dragon">🐉</div>
+    <div class="loader-num" id="lNum">000</div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mob-menu">
+    <button class="mob-x" onclick="closeMob()">✕</button>
+    <a href="#creator" onclick="closeMob()">Dawn</a>
+    <a href="#duality" onclick="closeMob()">Duality</a>
+    <a href="#vault" onclick="closeMob()">Vault</a>
+    <a href="#platforms" onclick="closeMob()">Empire</a>
+    <a href="#membership" onclick="closeMob()">Join</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="nav">
+    <a class="nav-logo" href="#">TAYLA DAWN <span>🐉</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#creator">Dawn</a></li>
+        <li><a href="#duality">Duality</a></li>
+        <li><a href="#vault">Vault</a></li>
+        <li><a href="#platforms">Empire</a></li>
+        <li><a href="#membership">Join</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Unlock</a>
+    </div>
+    <button class="ham" onclick="openMob()"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <div class="ht-dot"></div>
+        <div class="ht-line"></div>
+        <span class="ht-text">Cape Town · Digital Creator · Ink Collector</span>
+      </div>
+
+      <div class="hero-name">
+        <span class="line1">TAYLA</span>
+        <span class="line2">DAWN <span>🐉</span></span>
+      </div>
+
+      <p class="hero-desc">
+        Pastel dreams and royal darkness. Anime soul, ink on skin, cosplay magic. Welcome to both sides of me.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#membership" class="btn-primary">Enter the Vault</a>
+        <a href="#duality" class="btn-secondary">Discover Both Sides</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-top">
+        <div class="him-inner tayla-art-1" id="heroImgTop"></div>
+        <div class="hero-img-label">Royal</div>
+      </div>
+      <div class="hero-img-bot">
+        <div class="him-inner tayla-art-2" id="heroImgBot"></div>
+        <div class="hero-img-label">Pastel</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-bar"><div class="hsb-progress" id="scrollProgress"></div></div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <div class="ticker-item">✨ 2.8K followers ✨</div>
+      <div class="ticker-sep"></div>
+      <div class="ticker-item">🖤 Cape Town 🖤</div>
+      <div class="ticker-sep"></div>
+      <div class="ticker-item">💜 girly sexy goth 💜</div>
+      <div class="ticker-sep"></div>
+      <div class="ticker-item">🐉 anime & cosplay 🐉</div>
+      <div class="ticker-sep"></div>
+      <div class="ticker-item">🖋️ ink collector 🖋️</div>
+      <div class="ticker-sep"></div>
+    </div>
+  </div>
+
+  <!-- THE CREATOR -->
+  <section id="creator">
+    <div class="sw">
+      <div class="creator-grid">
+        <div class="creator-visual rv-l">
+          <div class="creator-frame">
+            <div class="cf-art">🐉</div>
+            <div class="cf-corner tl"></div>
+            <div class="cf-corner br"></div>
+            <div class="cf-label">CAPE TOWN · DURBAN</div>
+          </div>
+        </div>
+        <div class="creator-text">
+          <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">The Creator</span></div>
+          <div class="creator-name rv">Tayla Dawn</div>
+          <div class="creator-handle rv">@tayla.dawn · @tayla.dawn.barlow</div>
+          <p class="creator-bio rv">From Durban to Cape Town, I've always been a mix of soft and sharp. Pastel dreams and royal darkness. Anime soul, ink on skin, and a dragon spirit that refuses to be tamed.</p>
+          <p class="creator-bio rv">I create for the ones who feel the same — caught between worlds, comfortable in both, at home in the contrast.</p>
+          <div class="creator-stats rv">
+            <div class="cs-item"><div class="cs-num">2.8K</div><div class="cs-lab">Followers</div></div>
+            <div class="cs-item"><div class="cs-num">201</div><div class="cs-lab">Posts</div></div>
+            <div class="cs-item"><div class="cs-num">30</div><div class="cs-lab">Following</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE DUALITY -->
+  <section id="duality">
+    <div class="duality-grid">
+      <div class="duality-card pastel rv">
+        <div class="duality-icon">🌸</div>
+        <div class="duality-title">Pastel Dreams</div>
+        <div class="duality-desc">Soft, sweet, playful. The girly side of goth — lace and lavender, anime smiles, and the gentle magic of being soft in a hard world.</div>
+        <div class="duality-tags">
+          <span class="duality-tag">Lace</span>
+          <span class="duality-tag">Lavender</span>
+          <span class="duality-tag">Kawaii</span>
+          <span class="duality-tag">Soft</span>
+        </div>
+      </div>
+      <div class="duality-card royal rv d1">
+        <div class="duality-icon">🦇</div>
+        <div class="duality-title">Royal Darkness</div>
+        <div class="duality-desc">Deep, rich, powerful. The side that wears purple like a crown, that collects ink and owns the night. Royal blood runs dark.</div>
+        <div class="duality-tags">
+          <span class="duality-tag">Velvet</span>
+          <span class="duality-tag">Ink</span>
+          <span class="duality-tag">Goth</span>
+          <span class="duality-tag">Crown</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO CAROUSEL — NEW SECTION -->
+  <section id="video-carousel">
+    <div class="carousel-container">
+      <div class="carousel-header">
+        <div>
+          <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Watch</span></div>
+          <h2 class="s-title rv">Video <span>Moments</span></h2>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="slideCarousel(-1)">←</button>
+          <button class="carousel-btn" onclick="slideCarousel(1)">→</button>
+        </div>
+      </div>
+      <div class="carousel-track-container">
+        <div class="carousel-track" id="videoTrack">
+          <div class="video-card">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <div class="video-title">Pastel Goth Vlog</div>
+              <div class="video-meta"><span>🎥 12 min</span><span>🔒 Exclusive</span></div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <div class="video-title">Cosplay Prep</div>
+              <div class="video-meta"><span>🎥 24 min</span><span>🔒 Members</span></div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <div class="video-title">Ink Stories</div>
+              <div class="video-meta"><span>🎥 18 min</span><span>🔒 All Tiers</span></div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <div class="video-title">Cape Town Sunset</div>
+              <div class="video-meta"><span>🎥 8 min</span><span>🔒 Exclusive</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE VAULT -->
+  <section id="vault">
+    <div class="sw">
+      <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Collections</span></div>
+      <h2 class="s-title rv">The <em>Vault</em></h2>
+      <div class="vault-grid">
+        <div class="vault-item rv">
+          <div class="vault-icon">🌸</div>
+          <div class="vault-name">Pastel Dreams</div>
+          <div class="vault-count">47 photos · 8 videos</div>
+          <div class="vault-lock">🔒 Subscribe to unlock</div>
+        </div>
+        <div class="vault-item rv d1">
+          <div class="vault-icon">🦇</div>
+          <div class="vault-name">Royal Nights</div>
+          <div class="vault-count">62 photos · 12 videos</div>
+          <div class="vault-lock">🔒 Subscribe to unlock</div>
+        </div>
+        <div class="vault-item rv d2">
+          <div class="vault-icon">🎭</div>
+          <div class="vault-name">Cosplay Chronicles</div>
+          <div class="vault-count">23 photos · 5 videos</div>
+          <div class="vault-lock">🔒 Subscribe to unlock</div>
+        </div>
+        <div class="vault-item rv d3">
+          <div class="vault-icon">🖋️</div>
+          <div class="vault-name">Ink Stories</div>
+          <div class="vault-count">34 photos · 3 videos</div>
+          <div class="vault-lock">🔒 Subscribe to unlock</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM EMPIRE -->
+  <section id="platforms">
+    <div class="sw">
+      <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">My Empire</span></div>
+      <h2 class="s-title rv">Where to <em>Find Me</em></h2>
+      <div class="platforms-grid">
+        <a href="#" class="platform-card rv" target="_blank">
+          <div class="platform-icon">🔞</div>
+          <div class="platform-name">OnlyFans</div>
+          <div class="platform-stats">@tayla.dawn</div>
+          <div class="platform-handle">exclusive content</div>
+        </a>
+        <a href="#" class="platform-card rv d1" target="_blank">
+          <div class="platform-icon">📷</div>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-stats">@tayla.dawn.barlow</div>
+          <div class="platform-handle">daily moments</div>
+        </a>
+        <a href="#" class="platform-card rv d2" target="_blank">
+          <div class="platform-icon">🎵</div>
+          <div class="platform-name">TikTok</div>
+          <div class="platform-stats">@tayla.dawn</div>
+          <div class="platform-handle">short & sweet</div>
+        </a>
+        <a href="#" class="platform-card rv d3" target="_blank">
+          <div class="platform-icon">🖤</div>
+          <div class="platform-name">Reddit</div>
+          <div class="platform-stats">u/tayla_dawn</div>
+          <div class="platform-handle">community</div>
+        </a>
+        <a href="#" class="platform-card rv d4" target="_blank">
+          <div class="platform-icon">𝕏</div>
+          <div class="platform-name">X</div>
+          <div class="platform-stats">@tayla_dawn</div>
+          <div class="platform-handle">thoughts</div>
+        </a>
+        <a href="#" class="platform-card rv d5" target="_blank">
+          <div class="platform-icon">🔗</div>
+          <div class="platform-name">Linktree</div>
+          <div class="platform-stats">@tayla.barlow</div>
+          <div class="platform-handle">all links</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="sw">
+      <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Preview</span></div>
+      <h2 class="s-title rv">Glimpses <em>Behind the Curtain</em></h2>
+      <div class="gallery-grid">
+        <div class="gallery-item rv">
+          <div class="gallery-label">🌸 Pastel</div>
+        </div>
+        <div class="gallery-item rv d1">
+          <div class="gallery-label">🦇 Royal</div>
+        </div>
+        <div class="gallery-item rv d2">
+          <div class="gallery-label">🎭 Cosplay</div>
+        </div>
+        <div class="gallery-item rv d3">
+          <div class="gallery-label">🖋️ Ink</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="sw">
+      <div class="s-eye rv"><div class="s-eye-dot"></div><span class="s-eye-text">Kind Words</span></div>
+      <h2 class="s-title rv">What <em>Subscribers Say</em></h2>
+      <div class="testimonials-grid">
+        <div class="test-card rv">
+          <p class="test-quote">"Tayla's duality is what makes her content so special. One day soft and sweet, the next dark and powerful. Never boring."</p>
+          <div class="test-author">
+            <div class="test-avatar">M</div>
+            <div class="test-name"><h4>Marcus</h4><p>subscriber for 8 months</p></div>
+          </div>
+        </div>
+        <div class="test-card rv d1">
+          <p class="test-quote">"The cosplay content is next level. You can tell she actually loves the characters, not just the costume."</p>
+          <div class="test-author">
+            <div class="test-avatar">S</div>
+            <div class="test-name"><h4>Sarah</h4><p>subscriber for 1 year</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP TIERS -->
+  <section id="membership">
+    <div class="sw">
+      <div class="membership-header">
+        <div class="s-eye rv" style="justify-content: center;"><div class="s-eye-dot"></div><span class="s-eye-text">Join</span></div>
+        <h2 class="s-title rv">Choose Your <em>Path</em></h2>
+        <p class="s-sub rv" style="margin: 20px auto 0;">Pastel, Royal, or Velvet — every door leads to me.</p>
+      </div>
+      <div class="membership-grid">
+        <div class="member-card pastel-tier rv">
+          <div class="member-name">Pastel</div>
+          <div class="member-price">$9.99<span>/mo</span></div>
+          <ul class="member-features">
+            <li>🌸 Pastel gallery access</li>
+            <li>📸 50+ exclusive photos</li>
+            <li>💬 Monthly DMs</li>
+          </ul>
+          <a href="#contact" class="member-btn">Join Pastel</a>
+        </div>
+        <div class="member-card royal-tier featured rv d1">
+          <div class="member-badge">Most Popular</div>
+          <div class="member-name">Royal</div>
+          <div class="member-price">$19.99<span>/mo</span></div>
+          <ul class="member-features">
+            <li>🦇 Royal gallery access</li>
+            <li>🎥 All video content</li>
+            <li>💬 Weekly DMs</li>
+            <li>🔓 Both pastel & royal</li>
+          </ul>
+          <a href="#contact" class="member-btn">Join Royal</a>
+        </div>
+        <div class="member-card royal-tier rv d2">
+          <div class="member-name">Velvet</div>
+          <div class="member-price">$29.99<span>/mo</span></div>
+          <ul class="member-features">
+            <li>👑 Everything unlocked</li>
+            <li>🎭 Cosplay exclusives</li>
+            <li>💬 Direct messages</li>
+            <li>🖋️ Custom requests</li>
+          </ul>
+          <a href="#contact" class="member-btn">Join Velvet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / LINKS -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-left rv">
+        <div class="s-eye"><div class="s-eye-dot"></div><span class="s-eye-text">Connect</span></div>
+        <div class="contact-big">
+          Let's <em>talk</em>
+        </div>
+        <p class="s-sub">Collaborations, custom content, or just to say hi — I'd love to hear from you.</p>
+        <div class="contact-details">
+          <div class="cd-item">
+            <div class="cd-icon">📧</div>
+            <div class="cd-text">tayla@tayladawn.com</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon">📍</div>
+            <div class="cd-text">Cape Town, South Africa</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon">🔗</div>
+            <div class="cd-text">linktr.ee/tayla.barlow</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form rv">
+        <div class="cf-title">Send a Message</div>
+        <div class="cf-sub">I'll respond within 48 hours</div>
+        <div class="ff-row">
+          <div class="ff"><label>Name</label><input type="text" placeholder="Your name"/></div>
+          <div class="ff"><label>Email</label><input type="email" placeholder="you@example.com"/></div>
+        </div>
+        <div class="ff">
+          <label>Subject</label>
+          <select>
+            <option>Collaboration</option>
+            <option>Custom content</option>
+            <option>Business</option>
+            <option>Just saying hi</option>
+          </select>
+        </div>
+        <div class="ff"><label>Message</label><textarea placeholder="What's on your mind?"></textarea></div>
+        <button class="cf-btn" onclick="handleContact(this)">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="fb-logo" href="#">TAYLA DAWN <span>🐉</span></a>
+          <div class="fb-tagline">pastel · royal · ink</div>
+          <p>Digital creator from Cape Town. Anime soul, ink collector, duality embodied.</p>
+          <div class="f-soc">
+            <a class="fs-b" href="#">📷</a>
+            <a class="fs-b" href="#">🎵</a>
+            <a class="fs-b" href="#">𝕏</a>
+            <a class="fs-b" href="#">🔞</a>
+          </div>
+        </div>
+        <div>
+          <div class="fc-title">Explore</div>
+          <ul class="footer-links">
+            <li><a href="#creator">Dawn</a></li>
+            <li><a href="#duality">Duality</a></li>
+            <li><a href="#vault">Vault</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fc-title">Join</div>
+          <ul class="footer-links">
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fc-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">18+ Only</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="fbl">© 2026 TAYLA DAWN · All rights reserved · 18+ only</span>
+        <span class="fbr">both sides of me</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // === PURPLE TRAIL CURSOR (special for Tayla) ===
+    const trails = [];
+    const trailCount = 10;
+    for (let i = 0; i < trailCount; i++) {
+      const trail = document.createElement('div');
+      trail.className = 'trail';
+      document.body.appendChild(trail);
+      trails.push({
+        element: trail,
+        x: 0,
+        y: 0,
+        delay: i * 50
+      });
+    }
+
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateTrails() {
+      trails.forEach((trail, index) => {
+        setTimeout(() => {
+          trail.element.style.left = mouseX + 'px';
+          trail.element.style.top = mouseY + 'px';
+        }, trail.delay);
+      });
+      requestAnimationFrame(updateTrails);
+    }
+    updateTrails();
+
+    // === CURSOR ===
+    const dot = document.getElementById('c-dot');
+    const ring = document.getElementById('c-outer');
+    let mx = 0, my = 0, ox = 0, oy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function loop() {
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      ox += (mx - ox) * 0.08; oy += (my - oy) * 0.08;
+      ring.style.left = ox + 'px'; ring.style.top = oy + 'px';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a, button, .vault-item, .platform-card, .gallery-item, .test-card, .member-card, .video-card, .btn-primary, .btn-secondary').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+    });
+
+    // === LOADER ===
+    let pct = 0;
+    const lNum = document.getElementById('lNum');
+    const ldrInt = setInterval(() => {
+      pct += Math.random() * 2 + 1;
+      if (pct >= 100) { pct = 100; clearInterval(ldrInt);
+        setTimeout(() => { 
+          document.getElementById('loader').classList.add('gone');
+          setTimeout(() => { 
+            document.getElementById('heroImgTop')?.classList.add('drift');
+            document.getElementById('heroImgBot')?.classList.add('drift');
+          }, 600);
+        }, 400);
+      }
+      lNum.textContent = String(Math.floor(pct)).padStart(3, '0');
+    }, 50);
+
+    // === NAVBAR SCROLL ===
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      
+      const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scrollProgress').style.width = Math.min(scrollPct, 100) + '%';
+    });
+
+    // === REVEAL ON SCROLL ===
+    const revIO = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(el => revIO.observe(el));
+
+    // === CAROUSEL ===
+    let slideIndex = 0;
+    function slideCarousel(direction) {
+      const track = document.getElementById('videoTrack');
+      const cards = document.querySelectorAll('.video-card');
+      const cardWidth = cards[0].offsetWidth + 20; // width + gap
+      const maxSlide = cards.length - (window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1200 ? 2 : 3));
+      slideIndex += direction;
+      if (slideIndex < 0) slideIndex = maxSlide;
+      if (slideIndex > maxSlide) slideIndex = 0;
+      track.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
+    }
+    window.slideCarousel = slideCarousel;
+
+    // === CONTACT FORM HANDLER ===
+    function handleContact(btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Sending...';
+      btn.style.background = 'rgba(179,0,255,0.5)';
+      setTimeout(() => {
+        btn.innerHTML = '✓ Message Sent — I\'ll Reply Within 48 Hours';
+        btn.style.background = 'rgba(179,0,255,0.3)';
+        btn.style.color = '#ffffff';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 5000);
+      }, 1800);
+    }
+    window.handleContact = handleContact;
+
+    // === MOBILE MENU ===
+    function openMob() { document.getElementById('mob-menu').classList.add('open'); }
+    function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
+    window.openMob = openMob; window.closeMob = closeMob;
+
+    // === SMOOTH SCROLL ===
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // === PARALLAX ===
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      const haze = document.querySelector('.purple-haze');
+      if (haze && sy < window.innerHeight) {
+        haze.style.transform = `translateY(${sy * 0.1}px)`;
+      }
+    });
+  </script>
+</body>
+</html>
